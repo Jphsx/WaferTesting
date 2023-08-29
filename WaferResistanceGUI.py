@@ -102,8 +102,8 @@ class Window(Frame):
         self.Wafnum = "Wafer_Number"
         self.WafnumVar=StringVar() 
         self.WafnumVar.set(str(self.Wafnum))
-        padLabel = Label(self, text="Wafer Number:")
-        self.padEntry = Entry(self, textvariable=self.WafnumVar, width=15)
+        WafnumLabel = Label(self, text="Wafer Number:")
+        self.WafnumEntry = Entry(self, textvariable=self.WafnumVar, width=15)
         
         #ROC number field
         self.ROCnum = "ROC_Number"
@@ -169,6 +169,7 @@ class Window(Frame):
         # widget can take all window
         self.pack(fill=BOTH, expand=1)
 
+		'''
         self.saveButton = Button(self, text="Save Calibration Point", width=25, height=2, command=self.savePosition)
         readPositionButton  = Button(self, text="Read Position", width=10, height=2, command=self.readPosition)
         self.setHomeButton = Button(self, text="Set Home", width=10, height=2, command=self.setHome)
@@ -179,6 +180,7 @@ class Window(Frame):
         self.loadCalibrationButton = Button(self, text="Load Calibration", width=15, height=2, command=self.loadCalibration)
         self.moveToButton = Button(self, text="Move To", width=10, height=2, command=lambda: self.moveToPosition())
         self.moveToButton['state'] = DISABLED
+		'''
 
         upButton = Button(self, text="Up", width=10, height=2, command=lambda: self.moveBtn(0,1*float(self.stepsEntryXY.get()),0))
         upRightButton = Button(self, text="U-R", width=10, height=2, command=lambda: self.moveBtn(-1*float(self.stepsEntryXY.get()),1*float(self.stepsEntryXY.get()),0))
@@ -211,11 +213,13 @@ class Window(Frame):
         self.saveResistanceButton=Button(self, text="Save Resistance", width=15, height=2, command=self.saveResistanceManual)
         self.writeResistanceButton=Button(self, text="Write Resistance", width=15, height=2, command=self.writeResistance)
 
+		'''
         self.loadPointsButton = Button(self, text="Load Points", width=15, height=2, command=self.loadPoints)
         self.measureAllPointsButton = Button(self, text="Measure Points", width=15, height=2, command=self.measureAllPoints)
         self.measureAllPointsButton['state'] = DISABLED
         self.testAllPointsButton = Button(self, text="Test Points", width=15, height=2, command=lambda: self.measureAllPoints(test=True))
         self.testAllPointsButton['state'] = DISABLED
+		'''
 
         # buttons for setting safety limits
         self.setUpperLimitX = Button(self, text="Set Right Limit", width=15, height=2, command=lambda: self.setSafetyLimit('x',False))
@@ -237,6 +241,7 @@ class Window(Frame):
         self.NeedleTest = Button(self, text="Needle Test", width=15, height=2, command=self.NeedleTest)
 
         # place buttons
+		'''
         self.saveButton.place(x=300, y=500)
         stepsLabelXY.place(x=200,y=100)
         self.stepsEntryXY.place(x=200,y=125)
@@ -262,7 +267,7 @@ class Window(Frame):
         readPositionButton.place(x=100,y=450)
         savedLabel.place(x=300 ,y=550)
         self.savedPointsLabel.place(x=400 ,y=550)
-
+		'''
         upButton.place(x=200, y=60)
         upRightButton.place(x=300, y=60)
         upLeftButton.place(x=100, y=60)
@@ -301,27 +306,41 @@ class Window(Frame):
         readResistanceButton.place(x=575,y=110)
         checkContactButton.place(x=575,y=60)
         getMinResistanceButton.place(x=800,y=60)
-        loadPointsFileLabel.place(x=575,y=150)
-        self.loadPointsFileEntry.place(x=575,y=175)
-        self.loadPointsButton.place(x=575,y=200)
-        self.testAllPointsButton.place(x=575,y=250)
-        self.measureAllPointsButton.place(x=575,y=300)
-        self.raiseToContactButton.place(x=575,y=10)
+        #loadPointsFileLabel.place(x=575,y=150)
+        #self.loadPointsFileEntry.place(x=575,y=175)
+        #self.loadPointsButton.place(x=575,y=200)
+        #self.testAllPointsButton.place(x=575,y=250)
+        #self.measureAllPointsButton.place(x=575,y=300)
+        #self.raiseToContactButton.place(x=575,y=10)
 
-        sensorLabel.place(x=625,y=400)
-        self.sensorEntry.place(x=625,y=425)
-        padLabel.place(x=625,y=450)
-        self.padEntry.place(x=625,y=475)
+        #sensorLabel.place(x=625,y=400)
+        #self.sensorEntry.place(x=625,y=425)
+        WafnumLabel.place(x=625,y=400)
+        self.WafnumEntry.place(x=625,y=425)
+        ROCnumLabel.place(x=625,y=450)
+        self.ROCnumEntry.place(x=625,y=475)
+        GroupTypeLabel.place(x=625,y=500)
+        self.GroupTypeEntry.place(x=625,y=525)
+        BankNumLabel.place(x=625, y=550)
+        self.BankNumEntry.place(x=625,y=575)
+        ResNumLabel.place(x=625, y=600)
+        self.ResNumEntry.place(x=625, y=625)
+        
+        
+        
+        #padLabel.place(x=625,y=450)
+        #self.padEntry.place(x=625,y=475)
+        
         self.saveResistanceButton.place(x=575,y=500)
         self.writeResistanceButton.place(x=575,y=550)
-        nominalPadPositionXLabel.place(x=575,y=400)
-        self.nominalPadPositionXEntry.place(x=575,y=425)
-        nominalPadPositionYLabel.place(x=575,y=450)
-        self.nominalPadPositionYEntry.place(x=575,y=475)
+        #nominalPadPositionXLabel.place(x=575,y=400)
+        #self.nominalPadPositionXEntry.place(x=575,y=425)
+        #nominalPadPositionYLabel.place(x=575,y=450)
+        #self.nominalPadPositionYEntry.place(x=575,y=475)
         notesLabel.place(x=575,y=350)
         self.notesEntry.place(x=575,y=375)
-        runLabel.place(x=650,y=350)
-        self.runEntry.place(x=650,y=375)
+        #runLabel.place(x=650,y=350)
+        #self.runEntry.place(x=650,y=375)
 
         self.NeedleTest.place(x=700,y=110)
 
@@ -761,6 +780,6 @@ class Window(Frame):
 root = Tk()
 app = Window(root)
 root.wm_title("Tkinter button")
-root.geometry("800x600")
+root.geometry("800x800")
 root.mainloop()
 
