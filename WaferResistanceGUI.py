@@ -62,7 +62,7 @@ class Window(Frame):
         self.moveToYVar.set("0")
         self.moveToYEntry = Entry(self, textvariable=self.moveToYVar, width=10)
 
-	    '''
+        '''
         expectedLabel = Label(self, text="Nominal position:")
         self.expectedPositionXVar=StringVar() 
         self.expectedPositionXVar.set("0")
@@ -75,7 +75,7 @@ class Window(Frame):
         self.savedPointsVar=StringVar() 
         self.savedPointsVar.set("0")
         self.savedPointsLabel = Label(self, textvariable=self.savedPointsVar, width=10)
-		'''
+        '''
         menu = Menu(self.master)
         self.master.config(menu=menu)
 
@@ -84,7 +84,7 @@ class Window(Frame):
         fileMenu.add_command(label="Clear Calib", command=self.clearCalibrations)
         menu.add_cascade(label="File", menu=fileMenu)
 
-		''' 
+        ''' 
         self.saveCalibrationFile = "defaultCalibration.json"
         self.saveCalibrationFileVar=StringVar() 
         self.saveCalibrationFileVar.set(str(self.saveCalibrationFile))
@@ -95,7 +95,7 @@ class Window(Frame):
         self.loadCalibrationFileVar.set(str(self.loadCalibrationFile))
         loadCalibrationFileLabel = Label(self, text="Load Calibration From:")
         self.loadCalibrationFileEntry = Entry(self, textvariable=self.loadCalibrationFileVar, width=20)
-		'''
+        '''
 	
         
         #Wafer number field
@@ -143,7 +143,7 @@ class Window(Frame):
         self.nominalPadPositionYVar.set("0")
         nominalPadPositionYLabel = Label(self, text="Pad Y:")
         self.nominalPadPositionYEntry = Entry(self, textvariable=self.nominalPadPositionYVar, width=5)
-		'''
+        '''
 
         self.notes = "Notes"
         self.notesVar=StringVar() 
@@ -152,7 +152,7 @@ class Window(Frame):
         self.notesEntry = Entry(self, textvariable=self.notesVar, width=10)
 
 
-		'''
+        '''
         self.run = 0
         self.runVar=StringVar() 
         self.runVar.set(str(self.run))
@@ -164,12 +164,12 @@ class Window(Frame):
         self.loadPointsFileVar.set(str(self.loadPointsFile))
         loadPointsFileLabel = Label(self, text="Load Points:")
         self.loadPointsFileEntry = Entry(self, textvariable=self.loadPointsFileVar, width=18)
-		'''
+        '''
 	
         # widget can take all window
         self.pack(fill=BOTH, expand=1)
 
-		'''
+        '''
         self.saveButton = Button(self, text="Save Calibration Point", width=25, height=2, command=self.savePosition)
         readPositionButton  = Button(self, text="Read Position", width=10, height=2, command=self.readPosition)
         self.setHomeButton = Button(self, text="Set Home", width=10, height=2, command=self.setHome)
@@ -180,7 +180,7 @@ class Window(Frame):
         self.loadCalibrationButton = Button(self, text="Load Calibration", width=15, height=2, command=self.loadCalibration)
         self.moveToButton = Button(self, text="Move To", width=10, height=2, command=lambda: self.moveToPosition())
         self.moveToButton['state'] = DISABLED
-		'''
+        '''
 
         upButton = Button(self, text="Up", width=10, height=2, command=lambda: self.moveBtn(0,1*float(self.stepsEntryXY.get()),0))
         upRightButton = Button(self, text="U-R", width=10, height=2, command=lambda: self.moveBtn(-1*float(self.stepsEntryXY.get()),1*float(self.stepsEntryXY.get()),0))
@@ -213,13 +213,13 @@ class Window(Frame):
         self.saveResistanceButton=Button(self, text="Save Resistance", width=15, height=2, command=self.saveResistanceManual)
         self.writeResistanceButton=Button(self, text="Write Resistance", width=15, height=2, command=self.writeResistance)
 
-		'''
+        '''
         self.loadPointsButton = Button(self, text="Load Points", width=15, height=2, command=self.loadPoints)
         self.measureAllPointsButton = Button(self, text="Measure Points", width=15, height=2, command=self.measureAllPoints)
         self.measureAllPointsButton['state'] = DISABLED
         self.testAllPointsButton = Button(self, text="Test Points", width=15, height=2, command=lambda: self.measureAllPoints(test=True))
         self.testAllPointsButton['state'] = DISABLED
-		'''
+        '''
 
         # buttons for setting safety limits
         self.setUpperLimitX = Button(self, text="Set Right Limit", width=15, height=2, command=lambda: self.setSafetyLimit('x',False))
@@ -241,7 +241,7 @@ class Window(Frame):
         self.NeedleTest = Button(self, text="Needle Test", width=15, height=2, command=self.NeedleTest)
 
         # place buttons
-		'''
+        '''
         self.saveButton.place(x=300, y=500)
         stepsLabelXY.place(x=200,y=100)
         self.stepsEntryXY.place(x=200,y=125)
@@ -267,7 +267,7 @@ class Window(Frame):
         readPositionButton.place(x=100,y=450)
         savedLabel.place(x=300 ,y=550)
         self.savedPointsLabel.place(x=400 ,y=550)
-		'''
+        '''
         upButton.place(x=200, y=60)
         upRightButton.place(x=300, y=60)
         upLeftButton.place(x=100, y=60)
